@@ -28,15 +28,14 @@ const MoviesPage = ({movies, page, numberOfMovies}) => {
 }
 
 export async function getServerSideProps({query}){
-  const {API_URL} = 'http://165.232.136.226:1337';
   if (!query.page) {
     query.page=1
   }
   let start_page= +query.page === 1 ? 0 : (+query.page -1) *3
 
-  const numberOfMoviesRespone = await fetch(`${API_URL}/movies/count`);
+  const numberOfMoviesRespone = await fetch(`http://165.232.136.226:1337/movies/count`);
   const numberOfMovies = await numberOfMoviesRespone.json()
-  const res = await fetch(`${API_URL}/movies?_limit=3&_start=${start_page}`);
+  const res = await fetch(`http://165.232.136.226:1337/movies?_limit=3&_start=${start_page}`);
   const data = await res.json();
 
   return {

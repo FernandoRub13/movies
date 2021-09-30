@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps, navigation }) {
 const { publicRuntimeConfig } = getConfig();
 
 MyApp.getInitialProps = async () => {
-  const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`);
+  const res = await fetch(`http://165.232.136.226:1337/navigations`);
   const navigation = await res.json();
 
   return { navigation };

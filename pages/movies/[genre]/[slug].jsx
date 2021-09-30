@@ -24,12 +24,11 @@ const Movie = ({ movie }) => {
 };
 
 export async function getServerSideProps(context) {
-  const { API_URL } = 'http://165.232.136.226:1337';
 
   const { slug } = context.query;
   console.log(context);
 
-  const res = await fetch(`${API_URL}/movies?slug=${slug}`);
+  const res = await fetch(`http://165.232.136.226:1337/movies?slug=${slug}`);
   const data = await res.json();
 
   return {
