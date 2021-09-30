@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Card from "../components/Card";
 import { Flex, Box } from "reflexbox";
-import theme from "../theme/theme";
+import theme from "./../theme/theme";
 
 export default function Home({ movies }) {
   // console.log(movies);

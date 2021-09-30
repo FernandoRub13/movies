@@ -1,32 +1,39 @@
-import "../styles/globals.css";
+
 import Header from "components/Header";
-import "../styles/globals.css";
+
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import { ThemeProvider } from "@emotion/react";
 import theme from "../theme/theme";
-import getConfig from 'next/config'
-import fetch from 'isomorphic-unfetch'
+import getConfig from "next/config";
+import fetch from "isomorphic-unfetch";
+import SEO from "../next-seo.config";
+import { DefaultSeo } from "next-seo";
+import ContextWrapper from "../components/ContextWrapper";
 
-function MyApp({ Component, pageProps,navigation }) {
+
+function MyApp({ Component, pageProps, navigation }) {
   console.log(navigation);
   return (
     <>
-      <ThemeProvider theme={theme} >
+      <DefaultSeo {...SEO} />
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Header navigation={navigation} />
+        <ContextWrapper navigation={navigation} >
+          <Header />
+        </ContextWrapper>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
   );
 }
 
-const {publicRuntimeConfig}  =getConfig()
+const { publicRuntimeConfig } = getConfig();
 
-MyApp.getInitialProps = async ()=>{
-  const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`)
-  const navigation = await res.json()
+MyApp.getInitialProps = async () => {
+  const res = await fetch(`${publicRuntimeConfig.API_URL}/navigations`);
+  const navigation = await res.json();
 
-  return {navigation}
-}
+  return { navigation };
+};
 
 export default MyApp;

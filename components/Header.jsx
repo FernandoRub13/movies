@@ -3,8 +3,9 @@ import { rem } from "polished";
 import { Flex, Box } from "reflexbox";
 import Navigation from "./Navigation";
 import Link from "next/link";
+import ToggleNavigationColorButton from "./ToggleNavigationColorButton";
 
-const Header = ({ isDark, navigation}) => {
+const Header = ({ isDark}) => {
   return (
     <HeaderStyled isDark={isDark}>
       <Box variant="container">
@@ -17,7 +18,8 @@ const Header = ({ isDark, navigation}) => {
               </a>
             </Link>
           </div>
-          <Navigation navigation={navigation} ></Navigation>
+          <Navigation  ></Navigation>
+          <ToggleNavigationColorButton></ToggleNavigationColorButton>
         </Flex>
       </Box>
     </HeaderStyled>
