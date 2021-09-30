@@ -10,7 +10,7 @@ const about = () => {
   return (
     <div>
       <NextSeo {...SEO} />
-      I'm an about page
+      Im an about page
     </div>
   )
 }
