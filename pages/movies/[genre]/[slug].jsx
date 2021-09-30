@@ -24,7 +24,7 @@ const Movie = ({ movie }) => {
 };
 
 export async function getServerSideProps(context) {
-  const { API_URL } = process.env;
+  const { API_URL } = 'http://165.232.136.226:1337';
 
   const { slug } = context.query;
   console.log(context);

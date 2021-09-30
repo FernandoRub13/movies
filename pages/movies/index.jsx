@@ -28,7 +28,7 @@ const MoviesPage = ({movies, page, numberOfMovies}) => {
 }
 
 export async function getServerSideProps({query}){
-  const {API_URL} = process.env;
+  const {API_URL} = 'http://165.232.136.226:1337';
   if (!query.page) {
     query.page=1
   }
