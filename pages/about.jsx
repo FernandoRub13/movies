@@ -3,8 +3,8 @@ import { NextSeo } from "next-seo"
 const about = () => {
 
   const SEO = {
-    title: 'About page',
-    description: 'Just your normal about page.'
+    title: "About page",
+    description: "Just your normal about page."
   }
 
   return (

@@ -1,7 +1,7 @@
 const BlogList = () => {
   return (
     <div>
-      I'm a blog post list
+      Im a blog post list
     </div>
   )
 }
